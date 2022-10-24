@@ -22,18 +22,19 @@ public class Logger {
 		this.prefix = prefix.substring(0, 1).toUpperCase() + prefix.substring(1).toLowerCase();
 	}
 	
-	private void log(int level, Object message) {
-		switch(LogLevel.VALUE_ARRAY[level]) {
-		case 0:
+	private void log(int level, Object message)
+	{
+		switch(level) {
+		case LogLevel.INFO:
 			System.out.println(time + " [" + ANSI_CYAN + prefix + ANSI_RESET + "/" + ANSI_CYAN + "INFO" + ANSI_RESET + "] " + message);
 			break;
-		case 1:
+		case LogLevel.WARN:
 	        System.out.println(time + " [" + ANSI_YELLOW + prefix + ANSI_RESET + "/" + ANSI_YELLOW + "WARN" + ANSI_RESET + "] " + message);
 	        break;
-		case 2:
+		case LogLevel.DEBUG:
 	        System.out.println(time + " [" + ANSI_PURPLE + prefix + ANSI_RESET + "/" + ANSI_PURPLE + "DEBUG" + ANSI_RESET + "] " + message);
 	        break;
-		case 3:
+		case LogLevel.ERROR:
 	        System.err.println(time + " [" + ANSI_RED + prefix + ANSI_RESET + "/" + ANSI_RED + "ERROR" + ANSI_RESET + "] " + message);
 	        break;
 		}
